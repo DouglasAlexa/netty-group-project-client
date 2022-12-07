@@ -29,7 +29,7 @@ public class NettyHandler extends SimpleChannelInboundHandler<ByteBuf> {
         System.out.println(date);
         System.out.println(Integer.parseInt(date.substring(8, 9)));
         try {
-            LocalDate dateFromServer = LocalDate.of(Integer.parseInt(date.substring(0, 3)), Integer.parseInt(date.substring(5, 6)), Integer.parseInt(date.substring(8, 9)));
+            LocalDate dateFromServer = LocalDate.of(Integer.parseInt(date.substring(0, 4)), Integer.parseInt(date.substring(5, 7)), Integer.parseInt(date.substring(8, 10)));
             return dateFromServer;
         } catch (Exception e) {
             e.printStackTrace();
