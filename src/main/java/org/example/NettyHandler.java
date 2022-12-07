@@ -26,6 +26,7 @@ public class NettyHandler extends SimpleChannelInboundHandler<ByteBuf> {
         var buffer = new byte[length];
         byteBuf.readBytes(buffer, 0, length);
         String date = new String(buffer, 0, length);
+        System.out.println(date);
         System.out.println(Integer.parseInt(date.substring(8, 9)));
         try {
             LocalDate dateFromServer = LocalDate.of(Integer.parseInt(date.substring(0, 3)), Integer.parseInt(date.substring(5, 6)), Integer.parseInt(date.substring(8, 9)));
