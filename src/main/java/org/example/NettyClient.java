@@ -38,6 +38,8 @@ public class NettyClient {
                     })
                     .connect(address, port).sync().channel();
 
+            System.out.println("Listening on port: " + port);
+
             // send to server
             Scanner scanner = new Scanner(System.in);
             String line = scanner.nextLine();
@@ -46,6 +48,7 @@ public class NettyClient {
 
                 if (line.equals("$send")) {
                     // request server to print message
+                    System.out.print("Enter a message: ");
                     line = scanner.nextLine();
 
                     ByteBuf byteBuf = Unpooled.buffer();
@@ -56,6 +59,7 @@ public class NettyClient {
                     channel.writeAndFlush(byteBuf);
                 } else if (line.equals("$url")) {
                     // request server to open browser with this url
+                    System.out.print("Enter a URL: ");
                     line = scanner.nextLine();
 
                     ByteBuf byteBuf = Unpooled.buffer();
