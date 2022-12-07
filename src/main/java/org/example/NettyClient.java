@@ -46,6 +46,8 @@ public class NettyClient {
 
                 if (line.equals("$send")) {
                     // request server to print message
+                    line = scanner.nextLine();
+
                     ByteBuf byteBuf = Unpooled.buffer();
                     byteBuf.writeByte(0);
                     byteBuf.writeInt(line.length());
@@ -54,6 +56,8 @@ public class NettyClient {
                     channel.writeAndFlush(byteBuf);
                 } else if (line.equals("$url")) {
                     // request server to open browser with this url
+                    line = scanner.nextLine();
+
                     ByteBuf byteBuf = Unpooled.buffer();
                     byteBuf.writeByte(1);
                     byteBuf.writeInt(line.length());
